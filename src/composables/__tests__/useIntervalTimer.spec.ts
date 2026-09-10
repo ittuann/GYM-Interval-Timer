@@ -44,7 +44,7 @@ describe('useIntervalTimer', () => {
 
     expect(timer.totalSets.value).toBe(4)
     expect(timer.currentSet.value).toBe(1)
-    expect(timer.timeLeft.value).toBe(60)
+    expect(timer.timeLeft.value).toBe(90)
     expect(timer.isRunning.value).toBe(false)
   })
 
@@ -53,12 +53,12 @@ describe('useIntervalTimer', () => {
 
     timer.toggleTimer()
     await vi.advanceTimersByTimeAsync(3000)
-    expect(timer.timeLeft.value).toBe(57)
+    expect(timer.timeLeft.value).toBe(87)
     expect(timer.isRunning.value).toBe(true)
 
     timer.toggleTimer()
     await vi.advanceTimersByTimeAsync(3000)
-    expect(timer.timeLeft.value).toBe(57)
+    expect(timer.timeLeft.value).toBe(87)
     expect(timer.isRunning.value).toBe(false)
   })
 
@@ -101,7 +101,7 @@ describe('useIntervalTimer', () => {
     timer.skipRest()
     expect(timer.isRunning.value).toBe(false)
     expect(timer.currentSet.value).toBe(2)
-    expect(timer.timeLeft.value).toBe(60)
+    expect(timer.timeLeft.value).toBe(90)
 
     timer.setRestTime(1)
     timer.toggleTimer()
@@ -127,8 +127,8 @@ describe('useIntervalTimer', () => {
     const timer = withSetup()
 
     timer.adjustTime(30)
-    expect(timer.timeLeft.value).toBe(90)
-    expect(timer.totalRestTime.value).toBe(90)
+    expect(timer.timeLeft.value).toBe(120)
+    expect(timer.totalRestTime.value).toBe(120)
 
     timer.adjustTime(-999)
     expect(timer.timeLeft.value).toBe(0)
