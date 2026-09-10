@@ -16,7 +16,7 @@ const emit = defineEmits<{
   <div class="rounded-[32px] bg-card-bg p-6 shadow-soft">
     <div class="mb-4 flex items-start justify-between">
       <div>
-        <h1 class="text-2xl font-bold">Gym Interval Timer</h1>
+        <h1 class="text-2xl font-bold">GYM Interval Timer</h1>
       </div>
     </div>
 

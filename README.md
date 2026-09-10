@@ -1,12 +1,13 @@
-# GYM Interval Timer
+# GYM Interval Timer ⏱️
 
-A gym interval timer: track your sets, run a rest countdown, and get an audible alarm when rest is over.
+GYM Interval Timer: rest countdown and auto track your sets.
+
 The set progress auto-advances when a rest is completed.
 
 > [!NOTE]
-> https://ittuann.github.io/GYM-Interval-Timer/
+> Visit website: https://ittuann.github.io/GYM-Interval-Timer/
 
-## Development
+## 🛠️ Development
 
 ```sh
 pnpm install
