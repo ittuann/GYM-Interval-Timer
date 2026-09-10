@@ -1,47 +1,58 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import ActionBar from '@/components/ActionBar.vue'
+import RestTimerCard from '@/components/RestTimerCard.vue'
+import SetProgressCard from '@/components/SetProgressCard.vue'
+import { useIntervalTimer } from '@/composables/useIntervalTimer'
+
+const {
+  totalSets,
+  currentSet,
+  presets,
+  selectedPreset,
+  totalRestTime,
+  timeLeft,
+  isRunning,
+  isRinging,
+  addSet,
+  resetSets,
+  selectSet,
+  setRestTime,
+  adjustTime,
+  toggleTimer,
+  stopRingtone,
+  skipRest,
+} = useIntervalTimer()
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <div class="flex min-h-screen justify-center p-4 font-sans text-text-main md:p-8">
+    <div class="mx-auto w-full max-w-md space-y-6 pb-24">
+      <SetProgressCard
+        :total-sets="totalSets"
+        :current-set="currentSet"
+        @add-set="addSet"
+        @select-set="selectSet"
+        @reset-sets="resetSets"
+      />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <RestTimerCard
+        :presets="presets"
+        :selected-preset="selectedPreset"
+        :time-left="timeLeft"
+        :total-rest-time="totalRestTime"
+        :is-running="isRunning"
+        @select-preset="setRestTime"
+        @adjust-time="adjustTime"
+      />
+
+      <ActionBar
+        :is-running="isRunning"
+        :is-ringing="isRinging"
+        @skip="skipRest"
+        @toggle="toggleTimer"
+        @stop-alarm="stopRingtone"
+        @add-time="adjustTime"
+      />
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  </div>
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>

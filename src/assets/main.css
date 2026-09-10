@@ -1,35 +1,42 @@
-@import './base.css';
+@import 'tailwindcss';
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+/*
+ * Theme tokens ported from the original single-file app's tailwind.config.
+ * In Tailwind v4 these live in CSS instead of a JS config file.
+ */
+@theme {
+  --color-app-bg: #f3f4f6;
+  --color-card-bg: #ffffff;
+  --color-primary-dark: #4a5d4e;
+  --color-primary-light: #e8f3ec;
+  --color-text-main: #1f2937;
+  --color-text-muted: #6b7280;
+  --color-accent-red: #fef2f2;
+  --color-text-red: #b91c1c;
+
+  --shadow-soft: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+
+  --font-sans: 'Inter', sans-serif;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+body {
+  background-color: var(--color-app-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+/* Circular progress ring */
+.progress-ring__circle {
+  transition: stroke-dashoffset 0.35s;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+/* Smooth transitions for interactive elements */
+.btn-transition {
+  transition: all 0.2s ease-in-out;
+}
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+.btn-transition:active {
+  transform: scale(0.95);
 }
