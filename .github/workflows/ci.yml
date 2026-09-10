@@ -33,11 +33,11 @@ jobs:
       - name: Build
         run: pnpm build-only
 
-      - name: Lint
-        run: pnpm lint
-
       - name: Type check
         run: pnpm type-check
 
+      - name: Lint
+        run: pnpm lint
+
       - name: Unit tests
-        run: pnpm test:unit --run
+        run: pnpm test:unit
