@@ -1,43 +1,43 @@
 name: Quality
 
 on:
-    push:
-        branches: ["**"]
-    pull_request:
+  push:
+    branches: ["**"]
+  pull_request:
 
 permissions:
-    contents: read
+  contents: read
 
 jobs:
-    quality:
-        runs-on: ubuntu-latest
+  quality:
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
 
-            - name: Setup pnpm
-              uses: pnpm/action-setup@v4
-              with:
-                  version: 10
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: 10
 
-            - name: Setup Node.js
-              uses: actions/setup-node@v5
-              with:
-                  node-version: 24
-                  cache: pnpm
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: pnpm
 
-            - name: Install dependencies
-              run: pnpm install --frozen-lockfile
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
-            - name: Lint
-              run: pnpm lint
+      - name: Build
+        run: pnpm build-only
 
-            - name: Type check
-              run: pnpm type-check
+      - name: Lint
+        run: pnpm lint
 
-            - name: Unit tests
-              run: pnpm test:unit --run
+      - name: Type check
+        run: pnpm type-check
 
-            - name: Build
-              run: pnpm build-only
+      - name: Unit tests
+        run: pnpm test:unit --run
