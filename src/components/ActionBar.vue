@@ -19,7 +19,7 @@ const emit = defineEmits<{
       class="flex w-full items-center justify-between rounded-full border border-gray-100 bg-card-bg p-2 shadow-lg"
     >
       <button
-        class="btn-transition flex h-14 w-20 flex-col items-center justify-center rounded-full bg-accent-red text-text-red"
+        class="flex h-14 w-20 flex-col items-center justify-center rounded-full bg-accent-red text-text-red transition-all duration-200 ease-in-out active:scale-95"
         @click="emit('skip')"
       >
         <i class="fa-solid fa-forward-step mb-1 text-sm"></i>
@@ -27,7 +27,7 @@ const emit = defineEmits<{
       </button>
 
       <button
-        class="btn-transition mx-2 flex h-14 flex-1 items-center justify-center rounded-full text-lg font-semibold text-white shadow-md transition-colors duration-300"
+        class="mx-2 flex h-14 flex-1 items-center justify-center rounded-full text-lg font-semibold text-white shadow-md transition-all duration-200 ease-in-out active:scale-95"
         :class="isRinging ? 'animate-pulse bg-red-500' : 'bg-primary-dark'"
         @click="isRinging ? emit('stopAlarm') : emit('toggle')"
       >
@@ -41,7 +41,7 @@ const emit = defineEmits<{
       </button>
 
       <button
-        class="btn-transition flex h-14 w-20 flex-col items-center justify-center rounded-full bg-primary-light text-primary-dark"
+        class="flex h-14 w-20 flex-col items-center justify-center rounded-full bg-primary-light text-primary-dark transition-all duration-200 ease-in-out active:scale-95"
         @click="emit('addTime', 30)"
       >
         <i class="fa-solid fa-plus mb-1 text-sm"></i>

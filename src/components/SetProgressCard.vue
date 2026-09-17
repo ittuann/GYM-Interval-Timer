@@ -70,7 +70,7 @@ const emit = defineEmits<{
     <!-- Reset button -->
     <div class="mt-4 flex w-full justify-center border-t border-gray-100 pt-4">
       <button
-        class="btn-transition flex items-center space-x-2 rounded-full bg-gray-50 px-5 py-2 text-sm font-medium text-text-muted transition-colors hover:bg-primary-light hover:text-primary-dark"
+        class="flex items-center space-x-2 rounded-full bg-gray-50 px-5 py-2 text-sm font-medium text-text-muted transition-all duration-200 ease-in-out active:scale-95 hover:bg-primary-light hover:text-primary-dark"
         @click="emit('resetSets')"
       >
         <i class="fa-solid fa-rotate-left"></i>

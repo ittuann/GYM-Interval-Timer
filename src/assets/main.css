@@ -24,19 +24,3 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-/* Circular progress ring */
-.progress-ring__circle {
-  transition: stroke-dashoffset 0.35s;
-  transform: rotate(-90deg);
-  transform-origin: 50% 50%;
-}
-
-/* Smooth transitions for interactive elements */
-.btn-transition {
-  transition: all 0.2s ease-in-out;
-}
-
-.btn-transition:active {
-  transform: scale(0.95);
-}

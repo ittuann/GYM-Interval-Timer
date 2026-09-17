@@ -52,7 +52,7 @@ const formattedTime = computed(() => {
         ></circle>
         <!-- Progress ring -->
         <circle
-          class="progress-ring__circle stroke-current text-primary-light"
+          class="origin-center -rotate-90 transition-[stroke-dashoffset] duration-[350ms] stroke-current text-primary-light"
           stroke-width="6"
           stroke-linecap="round"
           cx="50"
@@ -99,14 +99,14 @@ const formattedTime = computed(() => {
     <!-- Rest adjustment buttons -->
     <div class="mb-8 flex w-full items-center justify-center space-x-4">
       <button
-        class="btn-transition rounded-full bg-primary-light px-4 py-2 text-sm font-medium text-primary-dark"
+        class="rounded-full bg-primary-light px-4 py-2 text-sm font-medium text-primary-dark transition-all duration-200 ease-in-out active:scale-95"
         @click="emit('adjustTime', -15)"
       >
         -15s
       </button>
       <span class="text-sm font-medium text-text-muted">Rest Adjustment</span>
       <button
-        class="btn-transition rounded-full bg-primary-light px-4 py-2 text-sm font-medium text-primary-dark"
+        class="rounded-full bg-primary-light px-4 py-2 text-sm font-medium text-primary-dark transition-all duration-200 ease-in-out active:scale-95"
         @click="emit('adjustTime', 15)"
       >
         +15s

@@ -45,6 +45,15 @@ const {
         @adjust-time="adjustTime"
       />
 
+      <a
+        href="https://github.com/ittuann/GYM-Interval-Timer"
+        target="_blank"
+        rel=""
+        class="block text-center text-sm text-text-muted underline-offset-2 hover:text-text-main hover:underline"
+      >
+        View source code on GitHub
+      </a>
+
       <ActionBar
         :is-running="isRunning"
         :is-ringing="isRinging"
