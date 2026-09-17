@@ -36,16 +36,13 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v6
-
-      - name: Build
-        run: pnpm build
+      - name: Build (GitHub Pages preset)
+        run: NUXT_APP_BASE_URL=/${{ github.event.repository.name }}/ pnpm build:pages
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
-          path: dist
+          path: .output/public
 
   deploy:
     environment:

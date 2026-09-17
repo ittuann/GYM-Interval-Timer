@@ -1,9 +1,5 @@
 <script setup lang="ts">
-import ActionBar from '@/components/ActionBar.vue'
-import RestTimerCard from '@/components/RestTimerCard.vue'
-import SetProgressCard from '@/components/SetProgressCard.vue'
-import { useIntervalTimer } from '@/composables/useIntervalTimer'
-
+// Components and the composable are auto-imported by Nuxt from app/ and app/components/.
 const {
   totalSets,
   currentSet,

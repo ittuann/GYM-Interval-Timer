@@ -13,16 +13,28 @@ The set progress auto-advances when a rest is completed.
 pnpm install
 ```
 
-- Compile and Hot-Reload for Development
+- Compile and Hot-Reload for Development (http://localhost:3000)
 
 ```sh
 pnpm dev
 ```
 
-- Type-Check, Compile and Minify for Production
+- Compile and Minify for Production
 
 ```sh
 pnpm build
+```
+
+- Build a fully static site (`.output/public`)
+
+```sh
+pnpm generate
+```
+
+- Build with the GitHub Pages preset (prerenders `/` and `/404.html`, writes `.nojekyll`; requires the base URL env)
+
+```sh
+NUXT_APP_BASE_URL=/GYM-Interval-Timer/ pnpm build:pages
 ```
 
 - Run Unit Tests with Vitest
@@ -58,9 +70,10 @@ pnpm lint
 
 ### App Structure
 
-- `src/App.vue` — layout, wires state into the three cards
-- `src/components/SetProgressCard.vue` — set visualizer (add / select / reset)
-- `src/components/RestTimerCard.vue` — circular countdown, rest adjustment, presets
-- `src/components/ActionBar.vue` — floating Skip / Start-Pause-Stop Alarm / +30s bar
-- `src/composables/useIntervalTimer.ts` — timer, set and alarm state logic
-- `src/audio/ringtone.ts` — Tone.js alarm tone (FMSynth arpeggio loop)
+- `nuxt.config.ts` — Nuxt configuration (SPA mode, GitHub Pages base URL, head metadata)
+- `app/app.vue` — layout, wires state into the three cards
+- `app/components/SetProgressCard.vue` — set visualizer (add / select / reset)
+- `app/components/RestTimerCard.vue` — circular countdown, rest adjustment, presets
+- `app/components/ActionBar.vue` — floating Skip / Start-Pause-Stop Alarm / +30s bar
+- `app/composables/useIntervalTimer.ts` — timer, set and alarm state logic
+- `app/audio/ringtone.ts` — Tone.js alarm tone (FMSynth arpeggio loop)
